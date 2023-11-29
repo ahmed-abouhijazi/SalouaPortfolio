@@ -15,7 +15,7 @@ camera.position.z = 5;
 // Instantiate a new renderer and set its size
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 //renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setSize(540, 650); 
+renderer.setSize(450, 550); 
 
 // Add the renderer to the DOM
 document.getElementById("gltfContainer").appendChild(renderer.domElement);
@@ -47,7 +47,7 @@ loader.load(
         }
 
         object = gltf.scene;
-        object.scale.set(1.2,0.6,0.7);
+        object.scale.set(1.3,0.7,0.7);
         
 
         // Set initial position, rotation, or other properties if needed
