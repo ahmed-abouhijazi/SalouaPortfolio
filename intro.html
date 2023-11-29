@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <script type="module" src="https://threejs.org/build/three.module.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="intro.css">
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="page-header">
+            <div class="logo">
+                <a href="#">Saloua.</a>
+            </div>
+            <input type="checkbox" id="click">
+
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </label>
+            <!-- <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul> -->
+            <label class="mode">
+                <input type="checkbox" id="darkModeToggle">
+                <i class='bx bxs-moon'></i>
+            </label>
+        </div>
+    </header>
+
+
+    <section class="container">
+        <div class="main">
+            <div class="detail">
+                <h3>Hi, It's Me</h3>
+                <h1>I'm <span style="color:#f9532d;">Saloua</span></h1>
+                <p>I'm a professional Industry Engineer. Our Main Goal to help & Satisficed the Local & Global Clients ,
+                    Let's embark on a journey of innovation and satisfaction together.
+                </p>
+                <div class="social">
+                    <a class="butt" href="#"><i class='bx bxl-linkedin'></i></a>
+                    <!-- <a href="#"><i class='bx bxl-instagram'></i></a> -->
+                    <a class="butt" href="#"><i class='bx bxl-github'></i></a>
+                    <a class="down" href="#" style="display: flex; align-items: center;">
+                        <!-- <i class='bx download bx download'> resume </i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 16l4-5h-3V4h-2v7H8z"/><path fill="currentColor" d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"/></svg>
+                        <span style="font-size: 80%;"> Resume</span>
+                    </a>
+                </div>
+            </div>
+            <div class="img-sec">
+                <div class="images">
+                    <!-- <img src="f-1.png" alt="" class="img-w"> -->
+                    <div id="gltfContainer" class="img-w"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+    <script type="module" src="js/main.js"></script>
+    
+</body>
+
+</html>
