@@ -92,6 +92,7 @@ li a:hover {
 }
 
 .main {
+    margin-top: 8%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(277px, 1fr));
     row-gap: 2rem;
@@ -153,18 +154,18 @@ a.down {
 .images::before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: calc(100% - 130px);
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
     left: 50%;
-    bottom: 0;
+    bottom: 6%;
     transform: translateX(-50%);
     border-radius: 6px;
     z-index: -1;
 }
 
 .images::before {
-    /*background: linear-gradient(145deg, #e2e8ec, #ffffff);
-    box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;*/
+    background: linear-gradient(145deg, #e2e8ec, #ffffff);
+    box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;
 }
 
 .images {
@@ -200,8 +201,8 @@ a.down {
     }
 
     .images::before {
-        /*background: linear-gradient(145deg, #1f252e, #2e3239);
-        box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #1b1f27;*/
+        background: linear-gradient(145deg, #1f252e, #2e3239);
+        box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #1b1f27;
     }
 }
 
