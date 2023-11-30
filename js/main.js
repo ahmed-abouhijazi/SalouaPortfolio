@@ -81,6 +81,12 @@ window.addEventListener('resize', () => {
     renderer.setSize(gltfContainer.clientWidth, gltfContainer.clientHeight);
     // Dispose of the existing controls
     controls.dispose();
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = true;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.25;
+    controls.screenSpacePanning = false;
+    controls.maxPolarAngle = Math.PI / 2;
 });
 
 // Add lights to the scene, so we can actually see the 3D model
