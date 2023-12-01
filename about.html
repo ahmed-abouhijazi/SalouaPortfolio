@@ -1,30 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <script type="module" src="https://threejs.org/build/three.module.js"></script>
+<script type="module" src="https://threejs.org/build/three.module.js"></script>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="intro.css">
-    <style>
-        #gltfContainer {
-            width: 100%;
-            margin-left: auto;
-            position: relative;
-            /*border: 5px solid #ccc;*/
-            height: 431px; /* Set the height of the container */
-        }
-    </style>
+    <link rel="stylesheet" href="about.css">
     <title>Portfolio</title>
 </head>
 
 <body>
-    <header class="container">
+    <header class="container" style="z-index: 2;">
         <div class="page-header">
             <div class="logo">
-                <a href="/SalouaPortfolio/">Saloua.</a>
+                <a href="/">Saloua.</a>
             </div>
             <input type="checkbox" id="click">
 
@@ -34,11 +26,11 @@
                 </div>
             </label>
             <ul>
-                <li><a href="/SalouaPortfolio/">Home</a></li>
-                <li><a href="/SalouaPortfolio/about.html" class="active">About</a></li>
-                <li><a href="/SalouaPortfolio/skills.html">Skills</a></li>
-                <li><a href="/SalouaPortfolio/portfolio.html">Portfolio</a></li>
-                <li><a href="/SalouaPortfolio/contact.html">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html" class="active">About</a></li>
+                <li><a href="/skills.html">Skills</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/contact.html">Contact</a></li>
             </ul>
             <label class="mode">
                 <input type="checkbox" id="darkModeToggle">
@@ -50,7 +42,55 @@
 
     <section class="container">
         <div class="main">
-            <h3>Its about page</h3>
+            <div class="detail">
+                <h3>About ME</h3>
+                <h1>I'm <span style="color:#f9532d;">SALOUA AKOUBRI</span></h1>
+                <p>An Industrial engineer trained on production and process management, logistics,
+                    continuous improvement and ERP/EPM management, with experience in managing
+                    complex international projects in addition to multiple technical internships .
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="container" style="margin-top: 3%;">
+        <div class="experience" style="background-color: re;">
+            <h2>My Experience </h2>
+            <ul class="timeline" style="list-style-type: none;margin-left: 0;">
+                <li class="timeline-event">
+                    <label class="timeline-event-icon"></label>
+                    <div class="timeline-event-copy">
+                        <p class="timeline-event-thumbnail">April 2011 - heute</p>
+                        <h3>Geil,Danke! GmbH</h3>
+                        <h4>Geschäftsführerin eines Web-Studios</h4>
+                        <p><strong>Schwerpunkt: Frontend-Entwicklung</strong><br>Entwickeln von anspruchsvollen,
+                            animierten, responsive und adaptive Webseiten mit HTML5, SCSS, jQuery; für alle Browser,
+                            optimiert für Desktop, Notebook, Smartphones und Tablets (iOS, Android, Windows).</p>
+                        <p><strong>Projektmanagement mit Scrum</strong><br>Ständiges Verbessern des agilen
+                            Entwicklungsprozesses beispielsweise durch Grunt, Yeoman, GIT, JIRA und BrowserStack.</p>
+                    </div>
+                </li>
+                <li class="timeline-event">
+                    <label class="timeline-event-icon"></label>
+                    <div class="timeline-event-copy">
+                        <p class="timeline-event-thumbnail">November 2009 - März 2011</p>
+                        <h3>Freelancer</h3>
+                        <h4>Designer und Autor</h4>
+                        <p>Konzeption, Design und Produktion von Digitalen Magazinen mit InDesign, der Adobe Digital
+                            Publishing Suite und HTML5. Co-Autorin der Fachbücher "Digitales Publizieren für Tablets"
+                            und "Adobe Digital Publishing Suite" erschienen im dpunkt.verlag.</p>
+                    </div>
+                </li>
+                <li class="timeline-event">
+                    <label class="timeline-event-icon"></label>
+                    <div class="timeline-event-copy">
+                        <p class="timeline-event-thumbnail">April 2011 - heute</p>
+                        <h3>konplan gmbh</h3>
+                        <h4>IT-Consultant</h4>
+                        <p><strong>Systemarchitektur, Consulting</strong><br>Konzeption und Modellierung von Systemen
+                            und APIs für Digital Publishing und Entitlement nach SOA</p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </section>
     <script>
@@ -72,7 +112,7 @@
         });
     </script>
     <script type="module" src="js/main.js"></script>
-    
+
 </body>
 
 </html>
