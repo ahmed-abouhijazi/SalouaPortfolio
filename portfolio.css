@@ -1,0 +1,189 @@
+/* Variable Declarations */
+:root {
+  --color-blue: #2e95aa;
+  --color-yellow: #fed754;
+  --color-orange: #cc4b48;
+  --color-gray: #c1c1c1;
+  --color-green: #abc3b5;
+}
+
+/* Body Styles */
+h4 {
+  margin-top: 150%;
+}
+
+/* Main Content Styles */
+.main-content {
+  margin: 5em auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Heading Styles */
+h1 {
+  width: 100%;
+  margin: 0 auto 1.5em;
+  font-size: 30px;
+}
+
+h1 small {
+  text-transform: none;
+  display: block;
+  margin: 20px 0;
+  font: 300 20px 'QuickSand', sans-serif;
+  color: #999;
+}
+
+/* Moleskine Wrapper Styles */
+.moleskine-wrapper {
+  max-width: calc(100% / 4);
+  min-width: 10em;
+}
+
+/* Moleskine Notebook Styles */
+.moleskine-notebook {
+  cursor: pointer;
+  height: 250px;
+  width: 175px;
+  position: relative;
+  transition: .4s ease-in-out;
+  border-radius: 5px 15px 15px 5px;
+  transform-origin: left center 0px;
+  display: inline-block;
+  margin: 30px;
+  perspective: 800px;
+}
+
+.moleskine-notebook:hover {
+  transform: rotateZ(-10deg);
+}
+
+.moleskine-notebook:hover .notebook-cover {
+  transform: rotateY(-50deg);
+  z-index: 999;
+  box-shadow: 20px 10px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Notebook Cover Styles */
+.notebook-cover {
+  height: 250px;
+  width: 175px;
+  position: absolute;
+  border-radius: 5px 15px 15px 5px;
+  z-index: 10;
+  transition: .5s linear;
+  transform-style: preserve-3d;
+  transform-origin: left center 0px;
+  background: var(--color-orange); /* Default background color */
+}
+
+.notebook-cover:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: calc(100% + 2px);
+  top: -1px;
+  z-index: 100;
+  border-radius: 2px;
+  right: 25px;
+  transition: 2s ease;
+  background: linear-gradient(
+    to right,
+    darken(var(--color-orange), 15%) 0%,
+    var(--color-orange) 12%,
+    darken(var(--color-orange), 15%) 25%,
+    var(--color-orange) 37%,
+    darken(var(--color-orange), 15%) 50%,
+    var(--color-orange) 62%,
+    darken(var(--color-orange), 15%) 75%,
+    var(--color-orange) 87%,
+    darken(var(--color-orange), 15%) 100%
+  );
+  transform-origin: 0 0;
+}
+
+
+/* Notebook Cover Color Variants */
+.notebook-cover.blue {
+  background: var(--color-blue);
+}
+
+.notebook-cover.green {
+  background: var(--color-green);
+}
+
+.notebook-cover.yellow {
+  background: var(--color-yellow);
+}
+
+/* Notebook Skin Styles */
+.notebook-skin {
+  height: 50px;
+  background: #e8e8e0;
+  margin-top: 80px;
+  padding: 15px;
+  font-size: 12px;
+  position: relative;
+  z-index: 10;
+  color: #222;
+  text-align: left;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.notebook-skin:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 15px;
+  left: 0;
+  bottom: 0;
+  background: var(--color-gray);
+}
+
+/* Notebook Page Styles */
+.notebook-page {
+  height: 100%;
+  width: 175px;
+  position: absolute;
+  background-color: #fbfae8;
+  z-index: 0;
+  border-radius: 5px 16px 16px 5px;
+  overflow: hidden;
+}
+
+.notebook-page.ruled {
+  background: linear-gradient(to bottom, #fbfae8 9px, #e4e4e4 1px);
+  background-size: 100% 10px;
+}
+
+.notebook-page.squared {
+  background-image: linear-gradient(#e4e4e4 1px, transparent 1px), linear-gradient(90deg, #e4e4e4 1px, transparent 1px);
+  background-size: 10px 10px, 10px 10px, 2px 2px, 2px 2px;
+}
+
+.notebook-page.dotted {
+  background: linear-gradient(90deg, #fbfae8 10px, transparent 1%) center, linear-gradient(#fbfae8 10px, transparent 1%) center, #999;
+  background-size: 11px 11px;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  margin: 8em auto;
+  width: 100%;
+}
+
+footer a {
+  text-decoration: none;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px dashed #fff;
+  color: #fff;
+  margin: 5px;
+}
