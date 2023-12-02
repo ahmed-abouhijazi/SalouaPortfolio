@@ -1,103 +1,104 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400|Raleway:400);
 
-/* Variables */
-:root {
-  --color-1: black;
-  --color-2: white;
-  --color-3: rgb(168, 50, 121);
-}
-
-/* Fonts */
-body {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1em;
-  font-weight: 300;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
-}
-
-/* Layout */
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Styling */
+body, html {
+    color: #2C2C2C;
+    min-width: 600px;
+    height: 100%;
+    background: white;
+    font: 400 1em 'Lato';
+    -webkit-font-smoothing: antialiased;
+}
+
+#timeline {
+    padding-top: 5%;
+}
+
 .timeline {
-  margin: 4em auto;
-  position: relative;
-  max-width: 46em;
+    height: 100%;
+    position: relative;
 }
 
-.timeline:before {
-  background-color: var(--color-1);
-  content: '';
-  margin-left: -1px;
-  position: absolute;
-  top: 0;
-  left: 2em;
-  width: 2px;
-  height: 100%;
+.timeline canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
 }
 
-.timeline-event {
-  position: relative;
+.timeline figcaption {
+    font: 900 190% 'Lato';
+    text-transform: uppercase;
+    -webkit-text-stroke: .25px;
 }
 
-.timeline-event:hover .timeline-event-icon {
-  transform: rotate(-45deg);
-  background-color: var(--color-3);
+.timeline h2 {
+    font: 400 400% 'Raleway';
+    padding-bottom: 100px;
+    color: #b2cde9;
 }
 
-.timeline-event:hover .timeline-event-thumbnail {
-  box-shadow: inset 40em 0 0 0 var(--color-3);
+.timeline h6 {
+    color: #0090F5;
+    font: 400 80% Tahoma;
 }
 
-.timeline-event-copy {
-  padding: 2em;
-  position: relative;
-  top: -1.875em;
-  left: 4em;
-  width: 80%;
+.timeline p,
+.timeline ol {
+    font: 400 95% 'Raleway';
+    padding: 3px 0 20px 0;
+    color: #575757;
+    text-align: justify;
+    width: 70%;
 }
 
-.timeline-event-copy h3 {
-  font-size: 1.75em;
+.timeline ol {
+    list-style: disc;
+    margin-top: -20px;
+    padding-left: 40px;
 }
 
-.timeline-event-copy h4 {
-  font-size: 1.2em;
-  margin-bottom: 1.2em;
+.timeline figure {
+    float: right;
+    width: 100%;
 }
 
-.timeline-event-copy strong {
-  font-weight: 700;
+.timeline article {
+    position: relative;
+    width: 38%;
+    overflow: hidden;
+    margin-bottom: 100px;
 }
 
-.timeline-event-copy p:not(.timeline-event-thumbnail) {
-  padding-bottom: 1.2em;
+.timeline article:first-of-type {
+    float: left;
+    text-align: right;
 }
 
-.timeline-event-icon {
-  transition: transform 0.2s ease-in;
-  transform: rotate(45deg);
-  background-color: var(--color-1);
-  outline: 10px solid var(--color-2);
-  display: block;
-  margin: 0.5em 0.5em 0.5em -0.5em;
-  position: absolute;
-  top: 0;
-  left: 2em;
-  width: 1em;
-  height: 1em;
+.timeline article:first-of-type p,
+.timeline article:first-of-type figure {
+    float: right;
 }
 
-.timeline-event-thumbnail {
-  transition: box-shadow 0.5s ease-in 0.1s;
-  color: var(--color-2);
-  font-size: 0.75em;
-  background-color: var(--color-1);
-  box-shadow: inset 0 0 0 0em #ef795a;
-  display: inline-block;
-  margin-bottom: 1.2em;
-  padding: 0.25em 1em 0.2em 1em;
+.timeline article:last-of-type {
+    float: right;
+}
+
+.timeline article:last-of-type h2 {
+    color: #c6e0aa;
+}
+
+.timeline article:last-of-type h6,
+.timeline article:last-of-type a {
+    color: #40aa00;
+}
+
+.timeline article:last-of-type a:hover {
+    color: #95D40D;
 }
