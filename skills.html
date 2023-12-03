@@ -9,247 +9,144 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="intro.css">
     <style>
-        
-        #background-wrap {
-            bottom: 0;
-            left: 0;
-            position: fixed;
-            right: 0;
-            top: 0;
-            z-index: -1;
+        .containers {
+            margin: 5% 4%;
+            display: flex;
+            justify-content: center; /* Center the container horizontally */
+            align-items: center;
+            flex-wrap: wrap;
         }
         
-        /* OBJECTS */
+        .continer {
+            margin-left: 6%;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-around; /* Center the cards horizontally with space around them */
+            flex-wrap: wrap;
+        }
+
+        .continer .card {
+            width: 100%; /* Occupy full width initially */
+            margin-bottom: 20px; /* Adjust the spacing between cards */
+            position: relative;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: width 0.5s; /* Add transition for smooth resizing */
+        }
+
+        @media (min-width: 600px) {
+            .continer .card {
+                width: calc(50% - 20px); /* Two cards per row, considering margins */
+            }
+        }
+
+        @media (min-width: 768px) {
+            .continer .card {
+                width: calc(33.33% - 20px); /* Three cards per row, considering margins */
+            }
+        }
         
-        .bubble {
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            border-radius: 50%;
-            
-            -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgb(253, 156, 99);
-            -moz-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgb(253, 156, 99);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgb(253, 156, 99);
-            
+        .continer .card .face{
+            width: 300px;
             height: 200px;
-            position: absolute;
-            width: 200px;
+            transition: 0.5s;
         }
         
-        .bubble:after {
-            background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%); /* FF3.6+ */
-            background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.5)), color-stop(70%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
-            background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* Chrome10+,Safari5.1+ */
-            background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* Opera 12+ */
-            background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* IE10+ */
-            background: radial-gradient(ellipse at center,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* W3C */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-        
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            border-radius: 50%;
-            
-            -webkit-box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
-            -moz-box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
-            box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
-            
-            content: "";
-            height: 180px;
-            left: 10px;
-            position: absolute;
-            width: 180px;
-        }
-        /* ANIMATIONS */
-        
-        .x1 {
-            -webkit-animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            -moz-animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate; 
-            left: -5%;
-            top: 5%; 
-            -webkit-transform: scale(0.6);
-            -moz-transform: scale(0.6);
-            transform: scale(0.6);
-        }
-        .x2 {
-            -webkit-animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            -moz-animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            
-            left: 5%;
-            top: 80%;
-            
-            -webkit-transform: scale(0.4);
-            -moz-transform: scale(0.4);
-            transform: scale(0.4);
+        .continer .card .face.face1{
+            position: relative;
+            background: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            transform: translateY(100px);
         }
         
-        .x3 {
-            -webkit-animation: animateBubble 28s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            -moz-animation: animateBubble 28s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation: animateBubble 28s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            
-            left: 10%;
-            top: 40%;
-            
-            -webkit-transform: scale(0.7);
-            -moz-transform: scale(0.7);
-            transform: scale(0.7);
+        .continer .card:hover .face.face1{
+            background: #ff0057;
+            transform: translateY(0);
         }
         
-        .x4 {
-            -webkit-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            -moz-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            
-            left: 20%;
-            top: 0;
-            
-            -webkit-transform: scale(0.3);
-            -moz-transform: scale(0.3);
-            transform: scale(0.3);
+        .continer .card .face.face1 .content{
+            opacity: 0.2;
+            transition: 0.5s;
         }
         
-        .x5 {
-            -webkit-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            -moz-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            
-            left: 30%;
-            top: 50%;
-            
-            -webkit-transform: scale(0.5);
-            -moz-transform: scale(0.5);
-            transform: scale(0.5);
+        .continer .card:hover .face.face1 .content{
+            opacity: 1;
         }
         
-        .x6 {
-            -webkit-animation: animateBubble 21s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            -moz-animation: animateBubble 21s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation: animateBubble 21s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            
-            left: 50%;
-            top: 0;
-            
-            -webkit-transform: scale(0.8);
-            -moz-transform: scale(0.8);
-            transform: scale(0.8);
+        .continer .card .face.face1 .content img{
+            max-width: 100px;
         }
         
-        .x7 {
-            -webkit-animation: animateBubble 20s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            -moz-animation: animateBubble 20s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation: animateBubble 20s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            
-            left: 65%;
-            top: 70%;
-            
-            -webkit-transform: scale(0.4);
-            -moz-transform: scale(0.4);
-            transform: scale(0.4);
+        .continer .card .face.face1 .content h3{
+            margin: 10px 0 0;
+            padding: 0;
+            color: #ffffff;
+            text-align: center;
+            font-size: 1.5em;
         }
         
-        .x8 {
-            -webkit-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            -moz-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            
-            left: 80%;
-            top: 10%;
-            
-            -webkit-transform: scale(0.3);
-            -moz-transform: scale(0.3);
-            transform: scale(0.3);
+        .continer .card .face.face2{
+            position: relative;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            transform: translateY(-100px);
         }
         
-        .x9 {
-            -webkit-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            -moz-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            
-            left: 90%;
-            top: 50%;
-            
-            -webkit-transform: scale(0.6);
-            -moz-transform: scale(0.6);
-            transform: scale(0.6);
+        .continer .card:hover .face.face2{
+            transform: translateY(0);
         }
         
-        .x10 {
-            -webkit-animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            -moz-animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            
-            left: 80%;
-            top: 80%;
-            
-            -webkit-transform: scale(0.3);
-            -moz-transform: scale(0.3);
-            transform: scale(0.3);
+        .continer .card .face.face2 .content p{
+            margin: 0;
+            padding: 0;
         }
         
-        /* KEYFRAMES */
-        
-        @-webkit-keyframes animateBubble {
-            0% {
-                margin-top: 1000px;
-            }
-            100% {
-                margin-top: -100%;
-            }
+        .continer .card .face.face2 .content a{
+            margin: 15px 0 0;
+            display:  inline-block;
+            text-decoration: none;
+            font-weight: 900;
+            color: #333;
+            padding: 5px;
+            border: 1px solid #333;
         }
         
-        @-moz-keyframes animateBubble {
-            0% {
-                margin-top: 1000px;
-            }
-            100% {
-                margin-top: -100%;
-            }
+        .continer .card .face.face2 .content a:hover{
+            background: #333;
+            color: #fff;
+        }
+        .white-icon {
+            filter: brightness(0) invert(1) grayscale(1);
+        }
+        .continer .card .face.face1 .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: 0.2;
+            transition: 0.5s;
         }
         
-        @keyframes animateBubble {
-            0% {
-                margin-top: 1000px;
-            }
-            100% {
-                margin-top: -100%;
-            }
+        .continer .card .face.face1 .content img {
+            max-width: 100px;
+            margin-bottom: 10px; /* Adjust the spacing between image and title */
         }
-        
-        @-webkit-keyframes sideWays { 
-            0% { 
-                margin-left:0px;
-            }
-            100% { 
-                margin-left:50px;
-            }
-        }
-        
-        @-moz-keyframes sideWays { 
-            0% { 
-                margin-left:0px;
-            }
-            100% { 
-                margin-left:50px;
-            }
-        }
-        
-        @keyframes sideWays { 
-            0% { 
-                margin-left:0px;
-            }
-            100% { 
-                margin-left:50px;
-            }
-        }
-        
-        
     </style>
     <title>Portfolio</title>
 </head>
 
 <body>
-    <header class="container">
+    <header class="container" style="z-index: 2;">
         <div class="page-header">
             <div class="logo">
                 <a href="/SalouaPortfolio/">Saloua.</a>
@@ -276,19 +173,74 @@
     </header>
 
 
-    <section class="container">
-            <div id="background-wrap">
-                <div class="bubble x1"></div>
-                <div class="bubble x2"></div>
-                <div class="bubble x3"></div>
-                <div class="bubble x4"></div>
-                <div class="bubble x5"></div>
-                <div class="bubble x6"></div>
-                <div class="bubble x7"></div>
-                <div class="bubble x8"></div>
-                <div class="bubble x9"></div>
-                <div class="bubble x10"></div>
+    <section class="containers">
+        <div class="continer">
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img class="white-icon" src="skill-development.png">
+                        <h3>Technical knowledge :</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p><b>&#x2022;Continuous Improvement:</b>
+                                Kaizen
+                                5s
+                                Kanban
+                                PDCA
+                                AMDEC<br>
+                            <b>&#x2022;Logistics:</b>
+                                SCM
+                                Planning
+                                Inventory Management<br>
+                            <b>&#x2022;Maintenance: </b>
+                                TPM
+                                Catia V5<br>
+                            <b>&#x2022;Project Management:</b>
+                                Agile Methodology
+                                Scrum Framework
+                                Gantt
+                                Waterfall</p>
+                    </div>
+                </div>
             </div>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img class="white-icon" src="competence.png">
+                        <h3>Technical skills :</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>&#x2022;ERP management<br>
+                            &#x2022;Excel / VBA<br>
+                            &#x2022;Data analysis<br>
+                            &#x2022;Anaplan Model Building</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img class="white-icon" src="award.png">
+                        <h3>CERTIFICATES :</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>&#x2022;PLM PROTO Scheduling
+                            (Stellantis)<br>
+                            &#x2022;SIXSIGMA White belt<br>
+                            &#x2022;ANAPLAN Certified Model
+                            Builder (Level 2)<br>
+                            &#x2022;DELF B2</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </section>
     <script>
         const darkModeToggle = document.getElementById('darkModeToggle');
