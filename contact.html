@@ -1,20 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <script type="module" src="https://threejs.org/build/three.module.js"></script>
+<script type="module" src="https://threejs.org/build/three.module.js"></script>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="intro.css">
+    <link rel="stylesheet" href="contact.css">
     <style>
         #gltfContainer {
             width: 100%;
             margin-left: auto;
             position: relative;
             /*border: 5px solid #ccc;*/
-            height: 431px; /* Set the height of the container */
+            height: 431px;
+            /* Set the height of the container */
         }
     </style>
     <title>Portfolio</title>
@@ -35,7 +37,7 @@
             </label>
             <ul>
                 <li><a href="/SalouaPortfolio/">Home</a></li>
-                <li><a href="/SalouaPortfolio/about.html" >About</a></li>
+                <li><a href="/SalouaPortfolio/about.html">About</a></li>
                 <li><a href="/SalouaPortfolio/skills.html">Skills</a></li>
                 <li><a href="/SalouaPortfolio/portfolio.html">Portfolio</a></li>
                 <li><a href="/SalouaPortfolio/contact.html" class="active">Contact</a></li>
@@ -48,9 +50,32 @@
     </header>
 
 
-    <section class="container">
+    <section class="containers">
         <div class="main">
-            <h3>Its contact page</h3>
+            <div class="wrapper centered">
+                <article class="letter">
+                    <div class="side">
+                        <h1>Contact me</h1>
+                        <p>
+                            <textarea placeholder="Your message"></textarea>
+                        </p>
+                    </div>
+                    <div class="side">
+                        <p>
+                            <input type="text" placeholder="Your name">
+                        </p>
+                        <p>
+                            <input type="email" placeholder="Your email">
+                        </p>
+                        <p>
+                            <button id="sendLetter">Send</button>
+                        </p>
+                    </div>
+                </article>
+                <div class="envelope front"></div>
+                <div class="envelope back"></div>
+            </div>
+            <p class="result-message centered">Thank you for your message</p>
         </div>
     </section>
     <script>
@@ -71,8 +96,42 @@
             }
         });
     </script>
-    <script type="module" src="js/main.js"></script>
-    
+    <script type="module" src="contact.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init("f5nyPt42sKQ4ofOGs");
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const sendButton = document.getElementById('sendLetter');
+
+            sendButton.addEventListener('click', function () {
+                const nameInput = document.querySelector('input[placeholder="Your name"]');
+                const emailInput = document.querySelector('input[placeholder="Your email"]');
+                const messageTextarea = document.querySelector('textarea');
+
+                // Check if all fields are filled
+                if (nameInput.value.trim() === '' || emailInput.value.trim() === '' || messageTextarea.value.trim() === '') {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+
+                const data = {
+                    from_name: nameInput.value.trim(),
+                    reply_to: emailInput.value.trim(),
+                    message: messageTextarea.value.trim(),
+                };
+
+                emailjs.send("service_joqsrli", "template_mmm6oog", data)
+                    .then(function (response) {
+                        console.log("Email sent:", response);
+                        alert('Message sent successfully!');
+                    }, function (error) {
+                        console.error("Email send failed:", error);
+                        alert('Error sending message. Please try again later.');
+                    });
+            });
+        });
+    </script>
 </body>
 
 </html>
