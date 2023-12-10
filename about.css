@@ -57,6 +57,11 @@
     text-align: justify;
     width: 70%;
 }
+:is(.dark-mode) {
+    .timeline p{
+        color: #fff
+    }
+}
 
 .timeline ol {
     list-style: disc;
